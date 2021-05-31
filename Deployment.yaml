@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: APP-NAME
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: APP-NAME
+  template:
+    metadata:
+      labels:
+        app: APP-NAME
+    spec:
+      containers:
+      - name: APP-NAME
+        image: gcr.io/$project-id$/APP-NAME:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
